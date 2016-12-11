@@ -18,7 +18,22 @@ pts = [62 96; 62 60; 72, 50; 85, 40; 100 32; 120 28; 126 28; 126 96];
 
 
 %% Set up geometry for PDE
-[p,e,t] = tESmodel_getMesh(boundary,pts);
+brainsurface = [2; size(boundary,1); boundary(:,1); boundary(:,2)];
+scalplayer = [2; size(pts,1); pts(:,2); pts(:,1); zeros(size(brainsurface,1)-size(pts,1)-10,1)];
+% s = [3 4 25 25 ymax ymax 62 xmax xmax 62 zeros(1,size(b,1)-10)]';
+size(brainsurface)
+size(scalplayer)
+G = [scalplayer brainsurface];
+ns = char('scalp','brain'); ns=ns';
+sf = 'scalp-brain';
+[dl,bt] = decsg(G,sf,ns);
+% pdegplot(dl,'EdgeLabels','on','SubdomainLabels','on')
+% waitforbuttonpress
+gstat = csgchk(brainsurface);
+if any(gstat>0)
+    disp('csgchk error')
+end
+[p,e,t] = initmesh(dl,'Jiggle','on');
 
 
 %% Specify boundary conditions and solve PDE
