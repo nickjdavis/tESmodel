@@ -1,6 +1,12 @@
+% TODO
+% - fix limits of slice
+% - auto fix for crossings
+% - note changes ready for skull merge
+
 function boundary = tESmodel_getBrainSurface(Slice)
 
 % Horrible fix
+% was 96, 126
 ymax=96; xmax=126;
 
 
