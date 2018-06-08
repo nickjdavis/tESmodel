@@ -3,7 +3,7 @@
 % - auto fix for crossings
 % - note changes ready for skull merge
 
-function boundary = tESmodel_getBrainSurface(Slice)
+function [boundary,skull] = tESmodel_getBrainSurface(Slice)
 
 % Horrible fix
 % was 96, 126
@@ -30,6 +30,9 @@ for i=1:size(boundary,1)
 end
 boundary = [newboundary; ymax xmax];
 
+
+% Skull proxy
+skull = [62 ymax+1; 62 60; 72, 50; 85, 40; 100 32; 120 28; xmax+1 28; xmax+1 ymax+1];
 
 
 %  SAVE FOR LATER - SKULL

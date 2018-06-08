@@ -11,9 +11,9 @@ Slice = tESmodel_getImageData(gmfile);
 
 
 %% Image processing - get boundary and prepare as polygon
-boundary = tESmodel_getBrainSurface(Slice);
+[boundary,pts] = tESmodel_getBrainSurface(Slice);
 % Skull proxy
-pts = [62 96; 62 60; 72, 50; 85, 40; 100 32; 120 28; 126 28; 126 96];
+%pts = [62 96; 62 60; 72, 50; 85, 40; 100 32; 120 28; 126 28; 126 96];
 
 
 
