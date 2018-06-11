@@ -1,17 +1,19 @@
 % Master function for tESmodel project
 %
+% New version for TwoSlice branch - healthy and atrophied
+%
 % Based on testImProcSectionNew() from Royal Society meeting
 
 function tESmodel()
 
 %% Get image data
-gmfile = '.\data\c1sHive_03-0301-00003-000001-01_1.nii';
-Slice = tESmodel_getImageData(gmfile);
+gmfile1 = '.\data\c1sHive_03-0301-00003-000001-01_1.nii';
+Slice1 = tESmodel_getImageData(gmfile1);
 
 
 
 %% Image processing - get boundary and prepare as polygon
-[boundary,pts] = tESmodel_getBrainSurface(Slice);
+[boundary,pts] = tESmodel_getBrainSurface(Slice1);
 % Skull proxy
 %pts = [62 96; 62 60; 72, 50; 85, 40; 100 32; 120 28; 126 28; 126 96];
 
